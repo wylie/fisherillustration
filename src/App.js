@@ -14,11 +14,14 @@ import {
 } from "./styled.js";
 
 const importAll = (r) => {
-  return r.keys().map((imagePath) => ({
-    id: imagePath.replace(/(\.\/|\.jpg|t)/g, ''),
-    image: r(imagePath).default,
-    thumbnail: r(imagePath.replace(/(\.\/|\.jpg|t)/g, 't.jpg')).default,
-  }));
+  return r.keys().map((imagePath) => {
+    const imageId = imagePath.match(/\/(\d+)\./)[1];
+    return {
+      id: imageId,
+      image: r(imagePath).default,
+      thumbnail: r(`./assets/images/${imageId}t.jpg`).default,
+    };
+  });
 };
 
 const App = () => {
