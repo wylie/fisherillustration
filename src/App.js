@@ -13,16 +13,19 @@ import {
   Popup
 } from "./styled.js";
 
-// utility function to get all images from a folder
 const importAll = (r) => {
-  return r.keys().sort((a, b) => b > a).map(r);
+  return r.keys().map((imagePath) => ({
+    id: imagePath.replace(/(\.\/|\.jpg|t)/g, ''),
+    image: r(imagePath).default,
+    thumbnail: r(imagePath.replace(/(\.\/|\.jpg|t)/g, 't.jpg')).default,
+  }));
 };
 
 const App = () => {
   const [activeImage, setActiveImage] = useState(1);
   const thumbnailImages = importAll(require.context('./assets/images', false, /\.(png|jpe?g|svg)$/));
 
-  const handleClick = evt => {
+  const handleClick = (evt) => {
     const { target } = evt;
     setActiveImage(target.id);
   };
