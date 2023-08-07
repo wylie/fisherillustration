@@ -11,7 +11,7 @@ const importAll = (r) => {
   }).map((imagePath, index) => ({
     id: index + 1,
     image: r(imagePath).default,
-    thumbnail: r(imagePath.replace(/(\.\w+$)/, "t$1")).default,
+    thumbnail: r(imagePath.replace(/\.(png|jpe?g|svg)$/, "t.$1")).default, // Use "t.$1" instead of "t$1"
   }));
 };
 
