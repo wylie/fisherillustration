@@ -1,46 +1,30 @@
 import React, { useState } from "react";
 
-import { Anchor,
-  Copy,
-  Wrap,
-  Sidebar,
-  Content,
-  Header,
-  Title,
-  Thumbs,
-  Image,
-  Nav,
-  Popup
-} from "./styled.js";
+import { Anchor, Copy, Wrap, Sidebar, Content, Header, Title, Thumbs, Image, Nav, Popup } from "./styled.js";
 
 // utility function to get all images and their thumbnails from a folder
 const importAll = (r) => {
-  return r
-    .keys()
-    .sort((a, b) => {
-      const filenameA = a.split("/").pop();
-      const filenameB = b.split("/").pop();
-      return filenameA.localeCompare(filenameB);
-    })
-    .map((imagePath, index) => ({
-      id: index + 1,
-      image: r(imagePath).default,
-      thumbnail: r(imagePath.replace(/(\.\w+$)/, "t$1")).default,
-    }));
+  return r.keys().sort((a, b) => {
+    const filenameA = a.split("/").pop();
+    const filenameB = b.split("/").pop();
+    return filenameA.localeCompare(filenameB);
+  }).map((imagePath, index) => ({
+    id: index + 1,
+    image: r(imagePath).default,
+    thumbnail: r(imagePath.replace(/(\.\w+$)/, "t$1")).default,
+  }));
 };
 
-// require all images and thumbnails as an array, sorted by filename
-const imagesAndThumbnails = importAll(
-  require.context("./assets/images", false, /\.(png|jpe?g|svg)$/)
-);
-
 const App = () => {
-  // ...
+  const [activeImage, setActiveImage] = useState(1);
 
   const handleClick = (evt) => {
     const { target } = evt;
     setActiveImage(Number(target.id));
   };
+
+  // require all images and thumbnails as an array, sorted by filename
+  const imagesAndThumbnails = importAll(require.context("./assets/images", false, /\.(png|jpe?g|svg)$/));
 
   return (
     <Wrap>
