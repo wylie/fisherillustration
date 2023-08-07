@@ -35,7 +35,7 @@ const images = [
   { id: 1, image: require("./assets/images/18.jpg").default, thumbnail: require("./assets/images/18t.jpg").default },
   { id: 1, image: require("./assets/images/19.jpg").default, thumbnail: require("./assets/images/19t.jpg").default },
   { id: 20, image: require("./assets/images/20.jpg").default, thumbnail: require("./assets/images/20t.jpg").default },
-];
+]];
 
 const App = () => {
   const [activeImage, setActiveImage] = useState(1);
@@ -60,6 +60,9 @@ const App = () => {
     );
   };
 
+  console.log("activeImage: ", activeImage);
+  console.log("renderThumbnails: ", renderThumbnails);
+
   return (
     <Wrap>
       <Sidebar>
@@ -83,8 +86,8 @@ const App = () => {
           </Anchor>
         </Header>
         <Image
-          src={images[0].image}
-          alt={activeImage}
+          src={images[activeImage].image}
+          alt=""
           className="bigImg"
         />
       </Content>
