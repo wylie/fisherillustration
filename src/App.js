@@ -83,7 +83,7 @@ const App = () => {
           </Anchor>
         </Header>
         <Image
-          src={images[activeImage].image}
+          src={images[0].image}
           alt=""
           className="bigImg"
         />
