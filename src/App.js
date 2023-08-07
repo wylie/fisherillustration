@@ -13,7 +13,7 @@ import {
   Popup
 } from "./styled.js";
 
-const thumbnailImages = [
+const images = [
   { id: 0, image: require("./assets/images/0.jpg").default, thumbnail: require("./assets/images/0t.jpg").default },
   { id: 1, image: require("./assets/images/1.jpg").default, thumbnail: require("./assets/images/1t.jpg").default },
   { id: 1, image: require("./assets/images/2.jpg").default, thumbnail: require("./assets/images/2t.jpg").default },
@@ -35,26 +35,26 @@ const thumbnailImages = [
   { id: 1, image: require("./assets/images/18.jpg").default, thumbnail: require("./assets/images/18t.jpg").default },
   { id: 1, image: require("./assets/images/19.jpg").default, thumbnail: require("./assets/images/19t.jpg").default },
   { id: 20, image: require("./assets/images/20.jpg").default, thumbnail: require("./assets/images/20t.jpg").default },
-];
+]];
 
 const App = () => {
   const [activeImage, setActiveImage] = useState(1);
 
   const handleClick = evt => {
     const { target } = evt;
-    setActiveImage(target.id);
+    setActiveImage(parseInt(target.id, 10));
   }
 
   const renderThumbnails = () => {
     return (
-      thumbnailImages.length > 0 &&
-      thumbnailImages.map((thumbnail) => (
+      images.length > 0 &&
+      images.map((image) => (
         <Image
-          key={thumbnail.id}
+          key={image.id}
           alt=""
           onClick={handleClick}
-          src={thumbnail.thumbnail}
-          id={thumbnail.id}
+          src={image.thumbnail}
+          id={image.id}
         />
       ))
     );
@@ -83,7 +83,7 @@ const App = () => {
           </Anchor>
         </Header>
         <Image
-          src={require(`./assets/images/${activeImage}.jpg`).default}
+          src={images[activeImage].image}
           alt=""
           className="bigImg"
         />
