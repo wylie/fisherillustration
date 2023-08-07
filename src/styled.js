@@ -7,9 +7,9 @@ import img4 from "./assets/nav/navDrawger.png";
 
 export const Wrap = styled.div`
   display: flex;
-	width: 1076px;
-	height: 648px;
-	margin-top: 1rem;
+  width: 1076px;
+  height: 648px;
+  margin-top: 1rem;
 `;
 
 export const Sidebar = styled.div`
@@ -18,7 +18,9 @@ export const Sidebar = styled.div`
   overflow: auto;
 `;
 
-export const Thumbs = styled.div``;
+export const Thumbs = styled.div`
+  /* Add styles specific to Thumbs if needed */
+`;
 
 export const Content = styled.div`
   width: 936px;
@@ -68,7 +70,7 @@ export const Copy = styled.div`
 
 export const Image = styled.img`
   ${Thumbs} & {
-		margin-bottom: 10px;
+    margin-bottom: 10px;
     cursor: pointer;
   }
 `;
@@ -86,10 +88,8 @@ export const Popup = styled.span`
     margin: 30px 0 0 -125px;
     background: #000;
     background: #000000bf;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-box-shadow: -5px 5px 10px rgba(0,0,0,.5);
-    -webkit-box-shadow: -5px 5px 10px rgb(0 0 0 / 50%);
+    border-radius: 5px;
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.5);
     font-size: 11px;
     font-weight: bold;
     line-height: 1.5;
