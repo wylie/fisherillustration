@@ -35,7 +35,7 @@ const App = () => {
     <Wrap>
         <Sidebar>
           <Thumbs>
-            {thumbnailImages.length && thumbnailImages.reverse().map((thumbnail, index) => ( // loop over array of thumbnails (note: images are numbered 1-21, instead of 0-20, so indexes are incremented by 1)
+            {thumbnailImages.length && thumbnailImages.map((thumbnail, index) => ( // loop over array of thumbnails (note: images are numbered 1-21, instead of 0-20, so indexes are incremented by 1)
               <Image alt="" onClick={handleClick} src={thumbnail.default} id={index + 1} key={index + 1} />
             ))}
           </Thumbs>
