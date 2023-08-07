@@ -33,7 +33,7 @@ const App = () => {
           key={index + 1}
           alt=""
           onClick={handleClick}
-          src={thumbnail.default}
+          src={thumbnail.default} // Use the image path fetched by importAll
           id={index + 1}
         />
       ))
