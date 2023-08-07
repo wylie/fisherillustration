@@ -13,25 +13,37 @@ import {
   Popup
 } from "./styled.js";
 
-const importAll = (r) => {
-  return r.keys().map((imagePath) => {
-    const imageId = imagePath.match(/\/(\d+)\./)[1];
-    return {
-      id: imageId,
-      image: r(imagePath).default,
-      thumbnail: r(`./assets/images/${imageId}t.jpg`).default,
-    };
-  });
-};
+const thumbnailImages = [
+  { id: 0, image: require("./assets/images/0.jpg").default, thumbnail: require("./assets/images/0t.jpg").default },
+  { id: 1, image: require("./assets/images/1.jpg").default, thumbnail: require("./assets/images/1t.jpg").default },
+  { id: 1, image: require("./assets/images/2.jpg").default, thumbnail: require("./assets/images/2t.jpg").default },
+  { id: 1, image: require("./assets/images/3.jpg").default, thumbnail: require("./assets/images/3t.jpg").default },
+  { id: 1, image: require("./assets/images/4.jpg").default, thumbnail: require("./assets/images/4t.jpg").default },
+  { id: 1, image: require("./assets/images/5.jpg").default, thumbnail: require("./assets/images/5t.jpg").default },
+  { id: 1, image: require("./assets/images/6.jpg").default, thumbnail: require("./assets/images/6t.jpg").default },
+  { id: 1, image: require("./assets/images/7.jpg").default, thumbnail: require("./assets/images/7t.jpg").default },
+  { id: 1, image: require("./assets/images/8.jpg").default, thumbnail: require("./assets/images/8t.jpg").default },
+  { id: 1, image: require("./assets/images/9.jpg").default, thumbnail: require("./assets/images/9t.jpg").default },
+  { id: 1, image: require("./assets/images/10.jpg").default, thumbnail: require("./assets/images/10t.jpg").default },
+  { id: 1, image: require("./assets/images/11.jpg").default, thumbnail: require("./assets/images/11t.jpg").default },
+  { id: 1, image: require("./assets/images/12.jpg").default, thumbnail: require("./assets/images/12t.jpg").default },
+  { id: 1, image: require("./assets/images/13.jpg").default, thumbnail: require("./assets/images/13t.jpg").default },
+  { id: 1, image: require("./assets/images/14.jpg").default, thumbnail: require("./assets/images/14t.jpg").default },
+  { id: 1, image: require("./assets/images/15.jpg").default, thumbnail: require("./assets/images/15t.jpg").default },
+  { id: 1, image: require("./assets/images/16.jpg").default, thumbnail: require("./assets/images/16t.jpg").default },
+  { id: 1, image: require("./assets/images/17.jpg").default, thumbnail: require("./assets/images/17t.jpg").default },
+  { id: 1, image: require("./assets/images/18.jpg").default, thumbnail: require("./assets/images/18t.jpg").default },
+  { id: 1, image: require("./assets/images/19.jpg").default, thumbnail: require("./assets/images/19t.jpg").default },
+  { id: 20, image: require("./assets/images/20.jpg").default, thumbnail: require("./assets/images/20t.jpg").default },
+];
 
 const App = () => {
   const [activeImage, setActiveImage] = useState(1);
-  const thumbnailImages = importAll(require.context('./assets/images', false, /\.(png|jpe?g|svg)$/));
 
-  const handleClick = (evt) => {
+  const handleClick = evt => {
     const { target } = evt;
     setActiveImage(target.id);
-  };
+  }
 
   const renderThumbnails = () => {
     return (
