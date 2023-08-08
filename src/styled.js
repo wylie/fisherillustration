@@ -12,8 +12,16 @@ export const Wrap = styled.div`
 	margin-top: 1rem;
 `;
 
+export const Button = styled.button`
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+`;
+
 export const Sidebar = styled.div`
-  width: 130px;
+  width: 115px;
   height: 648px;
   overflow: auto;
 `;
