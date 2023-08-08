@@ -4,6 +4,7 @@ import img1 from "./assets/nav/navTitle.png";
 import img2 from "./assets/nav/navIllustrationArt.png";
 import img3 from "./assets/nav/navContact.png";
 import img4 from "./assets/nav/navDrawger.png";
+import img5 from "./assets/nav/navInstagram.png";
 
 export const Wrap = styled.div`
   display: flex;
@@ -52,6 +53,13 @@ export const Anchor = styled.a`
     width: 108px;
     margin-left: 20px;
     background: url(${img4}) no-repeat;
+  }
+  &.instagram {
+    width: 17px;
+    height: 17px;
+    margin: 5px 0 0 20px;
+    background: url(${img5}) no-repeat;
+    background-size: contain;
   }
 `;
 

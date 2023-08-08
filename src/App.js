@@ -88,9 +88,9 @@ const App = () => {
               <Popup>Get in touch with me by email at mark@marksfisher.com</Popup>
             </Nav>
           </Anchor>
-          <Anchor href="http://www.drawger.com/fisher/" className="drawger">
+          <Anchor href="https://www.instagram.com/marksfisher3/" className="instagram">
             <Nav>
-              <Popup>A select group of illustrators showing and discussing their commercial and personal work. See a lot of my personal work.</Popup>
+              <Popup>Spaceships, Comics, Rayguns, Sculptures, Toys & Posters. All I ever wanted to do is draw pictures and make things, so far so good.</Popup>
             </Nav>
           </Anchor>
         </Header>
